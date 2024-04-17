@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Registration Form</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  
+</head>
+
+<body>
+    <div class="heading" style="justify-content: center; text-align: center;">
+        <h2><u>Fill Details</u></h2>
+    </div>
+
+
+  <form id="registrationDetails" onsubmit="submitForm(event)">
+
+    <!-- First Name -->
+    <div class="name">
+      <div class="firstnamed"> 
+        <label for="fName" >First Name
+          <em class="important" aria-hidden="true">*</em>
+        </label>
+        <input type="text" id="fName" name="fName" placeholder="ex: Viraj" required />
+      </div>
+
+      <!-- Last Name -->
+      <div class="lastnamed">
+        <label for="lName">Last Name
+          <em class="important" aria-hidden="true">*</em>
+        </label>
+        <input type="text" id="lName" name="lName" placeholder="ex: Patel" required />
+      </div>
+
+    </div>
+   
+    <!-- Mobile number -->
+    <label for="mobNo">Mobile No
+      <em class="important" aria-hidden="true">*</em>
+    </label>
+    <input type="text" id="mobNo" name="mobNo" pattern="[7-9]{1}[0-9]{9}" placeholder="ex: 8141912121" required />
+
+    <!-- Email Id -->
+    <label for="email">Email
+      <em class="important" aria-hidden="true">*</em>
+    </label>
+    <input type="email" id="email" name="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" placeholder="ex: demo@gmail.com" title="Invalid email address" />
+
+   
+    <div class="genderd">
+
+      <!-- Gender -->
+      <label for="gender">Gender
+        <em class="important" aria-hidden="true">*</em>
+      </label>
+      <div class="maled">
+      
+        <input type="radio" id="male" name="gender" value="male" required />
+        <label for="male">Male</label>
+      </div>
+   
+      <div class="femaled">
+    
+        <input type="radio" id="female" name="gender" value="female" required />
+        <label for="female">Female</label>
+      </div>
+
+    </div>
+
+   
+    <div class="hobbiesd">
+
+      <!-- Hobbies -->
+      <label for="hobbies">Hobbies (select at least 3):</label>
+      <div class="hobbiesdata">
+        <div class="reading"><input type="checkbox" id="hobby1" name="hobbies[]" value="Reading" />
+          <label for="hobby1">Reading</label></div>
+        <div class="playing">
+          <input type="checkbox" id="hobby2" name="hobbies[]" value="Gaming" />
+          <label for="hobby2">Playing</label>
+        </div>
+        <div class="tv">
+          <input type="checkbox" id="hobby3" name="hobbies[]" value="Traveling" />
+          <label for="hobby3">Movies</label>
+        </div>
+       
+      </div>
+    </div>
+
+    <div class="costate">
+      <div class="countryd">
+
+        <!-- country -->
+        <label for="country">Country
+          <em class="important" aria-hidden="true">*</em>
+        </label>
+        <select id="country" onchange="updateState()" name="country" required>
+          <option value="">--Select a Country--</option>
+          <option value="Australia">Australia</option>
+          <option value="India">India</option>
+          <option value="USA">USA</option>
+          <option value="China">China</option>
+          <option value="Canada">Canada</option>
+        </select>
+      </div>
+   
+      <div class="stated" style="margin-left :50px;">
+
+        <!-- State -->
+        <label for="state" >State
+          <em class="important" aria-hidden="true">*</em>
+        </label>
+        <select id="state" name="state">
+          <!-- Automatically get data from country name -->
+          <option value="">--Select a State--</option>
+        </select>
+      </div>
+
+    </div>
+
+
+
+    <!-- Submit and Clear Button  -->
+    <div class="finalbutton">
+      <button type="submit" class="extra">Submit</button>
+      <button type="button" class="extra" onclick="clearForm()">Clear</button>
+    </div>
+
+  </form>
+<br>
+
+<hr style="width:100%">
+
+<div class="tablemain">
+
+  <div class="heading" style="justify-content: center; text-align: center;">
+    <h2><u>Data Table</u></h2>
+    
+</div>
+
+  <!-- Table of All the Data -->
+  <table id="userData">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Mobile No</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Hobbies</th>
+        <th>Country</th>
+        <th>State</th>
+        <th>Delete</th>
+        <th>Update</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+</div>
+
+
+  <script src="index.js"></script>
+</body>
+
+</html>
